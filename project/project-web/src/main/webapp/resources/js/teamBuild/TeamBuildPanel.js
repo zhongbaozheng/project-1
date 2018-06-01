@@ -56,7 +56,7 @@ Ext.project.TeamBuildPanel = new Ext.extend(Ext.Panel, {
             }
 		});
 		/** 定义表头* */
-		this.cm = new Ext.grid.ColumnModel([ new Ext.grid.RowNumberer(),this.sm,{
+		this.cm = new Ext.grid.ColumnModel([this.sm,{
 			dataIndex : 'id',
 			hidden : true
 		}, {
@@ -65,7 +65,8 @@ Ext.project.TeamBuildPanel = new Ext.extend(Ext.Panel, {
 		}, {
 			header : '上传时间',
 			dataIndex : 'uploadTime',
-            renderer : Ext.util.Format.dateRenderer('Y/m/d  H:i:s')
+            renderer : Ext.util.Format.dateRenderer('Y/m/d  H:i:s'),
+            width : 200
 		}, {
 			header : '上传人',
 			dataIndex : 'uploader'
@@ -194,7 +195,7 @@ Ext.project.TeamBuildPanel = new Ext.extend(Ext.Panel, {
 	},
 	/** 实现修改操作按钮功能 */
     showUpdateWindow : function() {
-        var records = this.getSelectionModel().getSelections();
+        var records = this.grid.getSelectionModel().getSelections();
         if (records == null || records.length != 1) {
             Ext.Msg.alert('提示', '请选中一个方案');
             return false;

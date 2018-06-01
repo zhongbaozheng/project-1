@@ -9,7 +9,7 @@ Ext.project.QuarterAchievementWindow = Ext.extend(Ext.Window, {
 		this.formPanel = new Ext.project.QuarterAchievementFormPanel();//实例化一个窗体面板
 		Ext.project.QuarterAchievementWindow.superclass.constructor.call(this, {
 			width : 830,
-			height : 450,
+			height : 271,
 			layout : 'fit',
 			//弹出窗口显示内容
 			items : [this.formPanel],

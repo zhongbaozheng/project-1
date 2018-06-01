@@ -38,9 +38,10 @@ Ext.project.AnnualBuildFormPanel = Ext.extend(Ext.FormPanel, {
                 displayField : 'type',
                 valueField : 'id'
             }, {
-                xtype : 'textfield',
+                xtype : 'datefield',
                 fieldLabel : '年度',
                 name : 'annual',
+                format:'Y',
                 allowBlank : false
             }, {
                 fieldLabel : '经费预算',

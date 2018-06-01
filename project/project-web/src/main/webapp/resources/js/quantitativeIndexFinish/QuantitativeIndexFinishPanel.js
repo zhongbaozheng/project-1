@@ -57,7 +57,7 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
             }
 		});
 		/** 定义表头* */
-		this.cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), this.sm, {
+		this.cm = new Ext.grid.ColumnModel([this.sm, {
             dataIndex : 'id',
             hidden : true
         }, {

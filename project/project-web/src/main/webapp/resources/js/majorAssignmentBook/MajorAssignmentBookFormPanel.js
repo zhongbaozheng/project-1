@@ -43,7 +43,7 @@ Ext.project.MajorAssignmentBookFormPanel = Ext.extend(Ext.FormPanel, {
                 allowBlank : false
             }, {
                 fieldLabel : '预期成果',
-                name : 'acceptanceAchievement',
+                name : 'acceptance',
                 xtype : 'textarea',
                 height : 150,
                 allowBlank : false

@@ -10,7 +10,7 @@ Ext.project.AchievementWindow = Ext.extend(Ext.Window, {
 		this.formPanel = new Ext.project.AchievementFormPanel();//实例化一个窗体面板
 		Ext.project.AchievementWindow.superclass.constructor.call(this, {
 			width : 1200,
-			height : 285,
+			height : 204,
 			layout : 'fit',
 			//弹出窗口显示内容
 			items : [this.formPanel],

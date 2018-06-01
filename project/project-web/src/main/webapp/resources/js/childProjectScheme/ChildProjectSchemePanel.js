@@ -56,7 +56,7 @@ Ext.project.ChildProjectSchemePanel = new Ext.extend(Ext.Panel, {
             }
         });
         /** 定义表头* */
-        this.cm = new Ext.grid.ColumnModel([ new Ext.grid.RowNumberer(),this.sm,{
+        this.cm = new Ext.grid.ColumnModel([this.sm,{
             dataIndex : 'id',
             hidden : true
         }, {
@@ -77,7 +77,7 @@ Ext.project.ChildProjectSchemePanel = new Ext.extend(Ext.Panel, {
         }, {
             header : '文件类型',
             dataIndex : 'fileType'
-        },{
+        }/*,{
             header : '状态',
             dataIndex : 'status',
             renderer : function(value) {
@@ -87,7 +87,7 @@ Ext.project.ChildProjectSchemePanel = new Ext.extend(Ext.Panel, {
                     return '<div style=";color:red;">待审核</div>';
                 }
             }
-        }]);
+        }*/]);
 
         this.store=new Ext.data.JsonStore({
             //url:this.Url.queryUrl,
@@ -106,10 +106,10 @@ Ext.project.ChildProjectSchemePanel = new Ext.extend(Ext.Panel, {
             data: {
                 "results" : 4,
                 "rows" : [
-                    {id: '1',fileName: '铁道供电技术',uploadTime: '1522482884000',uploader: '张三',fileDesc: '铁道供电技术建设方案',fileType: '.doc',status:'0'},
-                    {id: '2',fileName: '商务英语',uploadTime: '1522425600000',uploader: '王五',fileDesc: '商务英语建设方案',fileType: '.doc',status:'1'},
-                    {id: '3',fileName: '数控技术',uploadTime: '1522482884000',uploader: '老六',fileDesc: '数控技术建设方案',fileType: '.doc',status:'1'},
-                    {id: '4',fileName: '机械制造与自动化',uploadTime: '1522425600000',uploader: '赵四',fileDesc: '机械制造与自动化建设方案',fileType: '.doc',status:'0'}
+                    {id: '1',fileName: '铁道供电技术',uploadTime: '1522482884000',uploader: '张三',fileDesc: '铁道供电技术建设方案',fileType: '.doc'/*,status:'0'*/},
+                    {id: '2',fileName: '商务英语',uploadTime: '1522425600000',uploader: '王五',fileDesc: '商务英语建设方案',fileType: '.doc'/*,status:'1'*/},
+                    {id: '3',fileName: '数控技术',uploadTime: '1522482884000',uploader: '老六',fileDesc: '数控技术建设方案',fileType: '.doc'},
+                    {id: '4',fileName: '机械制造与自动化',uploadTime: '1522425600000',uploader: '赵四',fileDesc: '机械制造与自动化建设方案',fileType: '.doc'}
                 ]
             },
             autoLoad:true

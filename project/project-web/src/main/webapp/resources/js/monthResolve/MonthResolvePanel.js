@@ -56,7 +56,7 @@ Ext.project.MonthResolvePanel = new Ext.extend(Ext.Panel, {
             }
 		});
 		/** 定义表头* */
-		this.cm = new Ext.grid.ColumnModel([ new Ext.grid.RowNumberer(),this.sm, {
+		this.cm = new Ext.grid.ColumnModel([this.sm, {
             dataIndex : 'id',
             hidden : true
         }, {
@@ -74,19 +74,19 @@ Ext.project.MonthResolvePanel = new Ext.extend(Ext.Panel, {
         }, {
             header : '第一季度',
             dataIndex : 'firstQuarter',
-            width : 250
+            width : 200
         }, {
             header : '第二季度',
             dataIndex : 'secondQuarter',
-            width : 250
+            width : 200
         }, {
             header : '第三季度',
             dataIndex : 'threeQuarter',
-            width : 250
+            width : 200
         }, {
             header : '第四季度',
             dataIndex : 'fourQuarter',
-            width : 250
+            width : 200
         }]);
 		/** 定义数据源 */
 		this.store = new Ext.data.JsonStore({
@@ -210,7 +210,7 @@ Ext.project.MonthResolvePanel = new Ext.extend(Ext.Panel, {
 
 	/** 实现修改操作按钮功能 */
 	showUpdateWindow : function() {
-		var records = this.getSelectionModel().getSelections();
+		var records = this.grid.getSelectionModel().getSelections();
 		if (records == null || records.length != 1) {
 			Ext.Msg.alert('提示', '请选中一条记录');
 			return false;

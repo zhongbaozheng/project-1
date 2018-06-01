@@ -53,7 +53,7 @@ Ext.project.AchievementFormPanel = Ext.extend(Ext.FormPanel, {
                     fieldLabel : '预期成果',
                     name : 'support',
                     xtype : 'textarea',
-                    height : 150,
+                    height : 50,
                     allowBlank : false
                 }]
             },{
@@ -72,7 +72,7 @@ Ext.project.AchievementFormPanel = Ext.extend(Ext.FormPanel, {
                     fieldLabel : '目前进展情况',
                     name : 'moment',
                     xtype : 'textarea',
-                    height : 150,
+                    height : 50,
                     allowBlank : false
                 }]
             }]

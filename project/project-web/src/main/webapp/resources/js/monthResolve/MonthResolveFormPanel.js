@@ -52,25 +52,25 @@ Ext.project.MonthResolveFormPanel = Ext.extend(Ext.FormPanel, {
                 fieldLabel : '第一季度',
                 name : 'firstQuarter',
                 xtype : 'textarea',
-                height : 150,
+                height : 100,
                 allowBlank : false
             }, {
                 fieldLabel : '第二季度',
                 name : 'secondQuarter',
                 xtype : 'textarea',
-                height : 150,
+                height : 100,
                 allowBlank : false
             }, {
                 fieldLabel : '第三季度',
                 name : 'threeQuarter',
                 xtype : 'textarea',
-                height : 150,
+                height : 100,
                 allowBlank : false
             }, {
                 fieldLabel : '第四季度',
                 name : 'fourQuarter',
                 xtype : 'textarea',
-                height : 150,
+                height : 100,
                 allowBlank : false
             }]
 		});
