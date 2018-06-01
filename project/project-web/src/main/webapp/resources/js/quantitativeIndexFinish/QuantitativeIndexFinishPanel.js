@@ -61,9 +61,6 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
             dataIndex : 'id',
             hidden : true
         }, {
-            header : '项目',
-            dataIndex : 'project'
-        }, {
             header : '指标名称(单位)',
             dataIndex : 'name'
         }, {
@@ -94,7 +91,7 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
 				start : 0,
 				limit : this.pageSize
 			},
-			fields : ['id','project','name','desc', {
+			fields : ['id','name','desc', {
                 name : 'annual',
                 type : 'date',
                 dateFormat : 'time'
@@ -102,10 +99,10 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
             data: {
                 "results" : 4,
                 "rows" : [
-                    {id: '1',project: '综合改革项目',name: '应届毕业生自主创业比例',desc: '应与平台数据一致',annual: '1522339200000',basic: '3498',target: '3598',current: '3600'},
-                    {id: '2',project: '教师队伍建设项目',name: '公益性培训服务',desc: '应与质量年报一致',annual: '1522339200000',basic: '10',target: '20',current: '30'},
-                    {id: '3',project: '高水平专业建设项目',name: '新生报道率',desc: '新生报道率 = 实践报道学生数/实际录取数',annual: '1522339200000',basic: '90',target: '92',current: '93'},
-                    {id: '4',project: '教师队伍建设项目',name: '专任教师人均企业实践时间',desc: '专任教师人均企业实践时间 = 校内专任教师行业企业一线工作时间总数/专任教师数',annual: '1522339200000',basic: '17',target: '23',current: '30'}
+                    {id: '1',name: '应届毕业生自主创业比例',desc: '应与平台数据一致',annual: '1522339200000',basic: '3498',target: '3598',current: '3600'},
+                    {id: '2',name: '公益性培训服务',desc: '应与质量年报一致',annual: '1522339200000',basic: '10',target: '20',current: '30'},
+                    {id: '3',name: '新生报道率',desc: '新生报道率 = 实践报道学生数/实际录取数',annual: '1522339200000',basic: '90',target: '92',current: '93'},
+                    {id: '4',name: '专任教师人均企业实践时间',desc: '专任教师人均企业实践时间 = 校内专任教师行业企业一线工作时间总数/专任教师数',annual: '1522339200000',basic: '17',target: '23',current: '30'}
                 ]
             },
             autoLoad:true
@@ -185,7 +182,7 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
 
         Ext.project.QuantitativeIndexFinishPanel.superclass.constructor.call(this,{
             layout : 'border',
-            items : [this.grid]
+            items : [this.projectTree,this.grid]
         });
 
 	},
@@ -207,7 +204,7 @@ Ext.project.QuantitativeIndexFinishPanel = new Ext.extend(Ext.Panel, {
 
 	/** 实现修改操作按钮功能 */
 	showUpdateWindow : function() {
-		var records = this.getSelectionModel().getSelections();
+		var records = this.grid.getSelectionModel().getSelections();
 		if (records == null || records.length != 1) {
 			Ext.Msg.alert('提示', '请选中一条记录');
 			return false;

@@ -34,13 +34,13 @@ Ext.project.AchievementFormPanel = Ext.extend(Ext.FormPanel, {
                     name : 'id',
                     xtype : 'hidden'
                 }, {
-                    fieldLabel : '成果名称',
+                    fieldLabel : '专业名称',
                     name : 'name',
                     xtype : 'textfield',
                     allowBlank : false
                 },{
-                    fieldLabel : '类别',
-                    name : 'type',
+                    fieldLabel : '等级',
+                    name : 'rank',
                     xtype : 'combo',
                     allowBlank : false,
                     mode : 'local',
@@ -50,17 +50,16 @@ Ext.project.AchievementFormPanel = Ext.extend(Ext.FormPanel, {
                     displayField : 'type',
                     valueField : 'id'
                 }, {
-                    fieldLabel : '预期成果',
-                    name : 'support',
-                    xtype : 'textarea',
-                    height : 50,
+                    fieldLabel : '数量',
+                    name : 'count',
+                    xtype : 'textfield',
                     allowBlank : false
                 }]
             },{
                 columnWidth : .5,
                 items : [{
-                    fieldLabel : '所属单位',
-                    name : 'meun',
+                    fieldLabel : '类型',
+                    name : 'type',
                     xtype : 'textfield',
                     allowBlank : false
                 } , {
@@ -68,13 +67,13 @@ Ext.project.AchievementFormPanel = Ext.extend(Ext.FormPanel, {
                     name : 'leader',
                     xtype : 'textfield',
                     allowBlank : false
-                },{
+                }/*,{
                     fieldLabel : '目前进展情况',
                     name : 'moment',
                     xtype : 'textarea',
                     height : 50,
                     allowBlank : false
-                }]
+                }*/]
             }]
 
 		});

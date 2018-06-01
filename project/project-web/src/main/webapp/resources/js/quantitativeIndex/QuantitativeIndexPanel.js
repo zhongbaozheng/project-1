@@ -116,11 +116,11 @@ Ext.project.QuantitativeIndexPanel = new Ext.extend(Ext.Panel, {
 			width : 80,
 			showText : true,
 			items : [ {
-				text : '项目名称',
+				text : '指标名称',
 				value : 'name'
 			}, {
-				text : '项目负责人',
-				value : 'leader'
+				text : '年度',
+				value : 'annual'
 			} ],
 			changeHandler : function(btn, item) {
 				this.searchField.field = item.value;
@@ -173,7 +173,7 @@ Ext.project.QuantitativeIndexPanel = new Ext.extend(Ext.Panel, {
             frame : true,
             store : this.store,
             bbar : this.pagingBar,
-           // tbar : this.actionToolBar,
+            tbar : this.actionToolBar,
             loadMask : {
                 msg : '正在加载...'
             }
@@ -204,7 +204,7 @@ Ext.project.QuantitativeIndexPanel = new Ext.extend(Ext.Panel, {
 
 	/** 实现修改操作按钮功能 */
 	showUpdateWindow : function() {
-		var records = this.getSelectionModel().getSelections();
+		var records = this.grid.getSelectionModel().getSelections();
 		if (records == null || records.length != 1) {
 			Ext.Msg.alert('提示', '请选中一条记录');
 			return false;
@@ -224,7 +224,7 @@ Ext.project.QuantitativeIndexPanel = new Ext.extend(Ext.Panel, {
 	/** 实现删除操作按钮功能 */
 
 	deleteData : function() {
-		var records = this.getSelectionModel().getSelections();
+		var records = this.grid.getSelectionModel().getSelections();
 		if (records == null || records.length == 0) {
 			Ext.MessageBox.show({
 				title : '提示',

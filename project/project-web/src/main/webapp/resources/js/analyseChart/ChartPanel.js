@@ -20,8 +20,8 @@ Ext.project.ChartPanel = Ext.extend(Ext.Panel, {
                 'click': function (node) {
                     this.projectId = node.id;
                     this.grid.getStore().baseParams.projectId = node.id;
-                    this.grid.getStore().load();
-                    this.grid.setProjectId(node.id);
+                   // this.grid.getStore().load();
+                    //this.grid.setProjectId(node.id);
                 },
                 scope: this
             }

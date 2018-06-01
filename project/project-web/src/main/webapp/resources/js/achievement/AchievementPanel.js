@@ -60,21 +60,22 @@ Ext.project.AchievementPanel = new Ext.extend(Ext.Panel, {
             dataIndex : 'id',
             hidden : true
         }, {
-            header : '成果名称',
+            header : '专业名称',
             dataIndex : 'name',
             width : 150
         }, {
-            header : '所属单位',
-            dataIndex : 'meun',
-            width : 150
+            header : '类型',
+            dataIndex : 'type'
         }, {
             header : '完成人',
             dataIndex : 'leader'
         }, {
-            header : '类别',
-            dataIndex : 'type',
-            width : 150
+            header : '级别',
+            dataIndex : 'rank'
         }, {
+            header : '数量',
+            dataIndex : 'count'
+        }/*, {
             header : '预期成果',
             dataIndex : 'support',
             width : 150
@@ -82,7 +83,7 @@ Ext.project.AchievementPanel = new Ext.extend(Ext.Panel, {
             header : '目前进展情况',
             dataIndex : 'moment',
             width : 150
-        }]);
+        }*/]);
 		/** 定义数据源 */
 		this.store = new Ext.data.JsonStore({
 			url : this.Url.queryUrl,
@@ -93,14 +94,14 @@ Ext.project.AchievementPanel = new Ext.extend(Ext.Panel, {
 				start : 0,
 				limit : this.pageSize
 			},
-			fields : ['id','name','meun','leader','type', 'support','moment'],
+			fields : ['id','name','type','leader','rank', 'count'],
             data: {
                 "results" : 4,
                 "rows" : [
-                    {id: '1',name: '教学成果奖',meun: '轨道交通学院',leader: '张三',type: '国家级',support: '10',moment: '15'},
-                    {id: '2',name: '国内外访问学者',meun: '质量管理办公室',leader: '王五',type: '省级',support: '15',moment: '20'},
-                    {id: '3',name: '教学名师',meun: '质量管理办公室',leader: '老六',type: '校级',support: '18',moment: '23'},
-                    {id: '4',name: '精品在线开发课程',meun: '轨道交通学院',leader: '赵四',type: '独创',support: '13',moment: '13'}
+                    {id: '1',name: '铁道供电技术',type: '教学成果',leader: '张三',rank: '国家级',count: '10'/*,moment: '15'*/},
+                    {id: '2',name: '机械制造与自动化',type: '科研成果',leader: '王五',rank: '省级',count: '15'},
+                    {id: '3',name: '数控技术',type: '教学成果',leader: '老六',rank: '校级',count: '18'},
+                    {id: '4',name: '铁道通信与信息化技术',type: '科技成果',leader: '赵四',rank: '独创',count: '13'}
                 ]
             },
             autoLoad:true

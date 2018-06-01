@@ -30,7 +30,7 @@ Ext.project.QuantitativeIndexFormPanel = Ext.extend(Ext.FormPanel, {
                 allowBlank : false
             }, {
                 fieldLabel : '年度',
-                name : 'time',
+                name : 'annual',
                 xtype : 'datefield',
                 format : 'Y',
                 allowBlank : false

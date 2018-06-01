@@ -42,13 +42,13 @@ Ext.project.MajorSummaryFormPanel = Ext.extend(Ext.FormPanel, {
                     fieldLabel : '任务完成情况综述',
                     name : 'taskSummarize',
                     xtype : 'kindeditor',
-                    height : 300,
+                    height : 200,
                     allowBlank : false
                 }, {
                     fieldLabel : '经费使用情况综述',
                     name : 'fundsSummarize',
                     xtype : 'kindeditor',
-                    height : 300,
+                    height : 200,
                     allowBlank : false
                 },{
                     fieldLabel : '年度',
@@ -59,19 +59,19 @@ Ext.project.MajorSummaryFormPanel = Ext.extend(Ext.FormPanel, {
                     fieldLabel : '标志性成果完成情况综述',
                     name : 'achievementSummarize',
                     xtype : 'kindeditor',
-                    height : 300,
+                    height : 200,
                     allowBlank : false
                 },{
                     fieldLabel : '特色与亮点',
                     name : 'feature',
                     xtype : 'kindeditor',
-                    height : 300,
+                    height : 200,
                     allowBlank : false
                 },{
                     fieldLabel : '存在问题与对策',
                     name : 'problem',
                     xtype : 'kindeditor',
-                    height : 300,
+                    height : 200,
                     allowBlank : false
 
                 }]

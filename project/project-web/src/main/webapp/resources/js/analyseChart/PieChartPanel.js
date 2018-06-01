@@ -19,7 +19,7 @@ Ext.project.PieChartPanel = Ext.extend(Ext.Panel, {
             this.option = {
                 title: {
                     text: '年度经费使用情况',
-                    subtext: '纯属虚构',
+
                     x: 'center'
                 },
                 tooltip: {

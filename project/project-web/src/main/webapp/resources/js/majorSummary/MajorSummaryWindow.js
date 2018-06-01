@@ -9,7 +9,7 @@ Ext.project.MajorSummaryWindow = Ext.extend(Ext.Window, {
 		this.formPanel = new Ext.project.MajorSummaryFormPanel();//实例化一个窗体面板
 		Ext.project.MajorSummaryWindow.superclass.constructor.call(this, {
 			width : '90%',
-			height : 904,
+			height : 504,
 			layout : 'fit',
 			//弹出窗口显示内容
 			items : [this.formPanel],

@@ -9,7 +9,7 @@ Ext.project.SynthesizeSummaryWindow = Ext.extend(Ext.Window, {
 		this.formPanel = new Ext.project.SynthesizeSummaryFormPanel();//实例化一个窗体面板
 		Ext.project.SynthesizeSummaryWindow.superclass.constructor.call(this, {
 			width : '90%',
-			height : 608,
+			height : 500,
 			layout : 'fit',
 			//弹出窗口显示内容
 			items : [this.formPanel],
