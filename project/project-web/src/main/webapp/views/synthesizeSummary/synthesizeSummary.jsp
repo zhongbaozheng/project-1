@@ -13,7 +13,8 @@
             '${ctx}/resources/js/synthesizeSummary/ShowSynthesizeSummaryFormPanel.js',
             '${ctx}/resources/js/synthesizeSummary/QuantitativeIndexGridPanel.js',
             '${ctx}/resources/js/synthesizeSummary/SynbolicAchievementGridPanel.js',
-                '${ctx}/resources/js/synthesizeSummary/SynthesizeSummaryGridPanel.js'
+                '${ctx}/resources/js/synthesizeSummary/SynthesizeSummaryGridPanel.js',
+            '${ctx}/resources/js/tree/ProjectTreePanel.js'
             ],
 		complete : function() {
 			var panel = new Ext.project.SynthesizeSummaryGridPanel({

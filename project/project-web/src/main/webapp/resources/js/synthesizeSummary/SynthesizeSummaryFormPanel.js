@@ -27,7 +27,7 @@ Ext.project.SynthesizeSummaryFormPanel = Ext.extend(Ext.FormPanel, {
             items : [{
                     name : 'id',
                     xtype : 'hidden'
-                }, {
+                },/*, {
                     fieldLabel : '项目名称',
                     name : 'project',
                     xtype : 'combo',
@@ -38,6 +38,11 @@ Ext.project.SynthesizeSummaryFormPanel = Ext.extend(Ext.FormPanel, {
                     triggerAction : 'all',
                     displayField : 'type',
                     valueField : 'id'
+                }*/{
+                    fieldLabel : '总结标题',
+                    name : 'title',
+                    xtype : 'textfield',
+                    allowBlank : false
                 },{
                     fieldLabel : '任务完成情况综述',
                     name : 'taskSummarize',
@@ -52,8 +57,9 @@ Ext.project.SynthesizeSummaryFormPanel = Ext.extend(Ext.FormPanel, {
                     allowBlank : false
                 },{
                     fieldLabel : '年度',
-                    name : 'time',
-                    xtype : 'textfield',
+                    name : 'annual',
+                    xtype : 'datefield',
+                    format : 'Y',
                     allowBlank : false
                 } , {
                     fieldLabel : '经费使用情况综述',
