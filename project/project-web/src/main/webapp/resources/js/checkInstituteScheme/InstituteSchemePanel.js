@@ -10,10 +10,10 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
 		this.pageSize = 10;
 		// 增删改查方法路径
 		this.Url = {
-            queryUrl : 'project/instituteScheme/queryListForPage',
-            insertUrl : 'project/instituteScheme/insert',
-            updateUrl : 'project/instituteScheme/update',
-            deleteUrl : 'project/instituteScheme/delete'
+            queryUrl : 'project/checkInstituteScheme/queryListForPage',
+            insertUrl : 'project/checkInstituteScheme/insert',
+            updateUrl : 'project/checkInstituteScheme/update',
+            deleteUrl : 'project/checkInstituteScheme/delete'
 		},
 		/** 项目列表 */
 		this.projectTree = new Ext.project.ProjectTreePanel({
@@ -83,14 +83,16 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
             renderer : function(value) {
                 if (value == 1) {
                     return '<div style=";color:#4ef037;">已通过</div>';
-                }else {
-                    return '<div style=";color:red;">待审核</div>';
+                }else if (value == 2){
+                    return '<div style=";color:yellow;">待审核</div>';
+                }else{
+                    return '<div style=";color:red;">不通过</div>';
                 }
             }
         }]);
 
         this.store=new Ext.data.JsonStore({
-            //url:this.Url.queryUrl,
+            url:this.Url.queryUrl,
             fields : [ 'id', 'fileName', {
                 name : 'uploadTime',
                 type : 'date',
@@ -101,8 +103,9 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
             totalProperty:'results',
             baseParams:{
                 start:0,
-                limit:this.pageSize
-            },
+                limit:this.pageSize,
+                code:0
+            }/*,
             data: {
                 "results" : 4,
                 "rows" : [
@@ -112,7 +115,7 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
                     {id: '4',fileName: '科学研究和社会服务',uploadTime: '1522482884000',uploader: '赵四',fileDesc: '科学研究和社会服务建设方案',fileType: '.doc',status:'1'}
                 ]
             },
-            autoLoad:true
+            autoLoad:true*/
         });
 
 
@@ -151,10 +154,10 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
                 text : '选择状态',
                 value : null
             },{
-                text : '已完结',
+                text : '审核通过',
                 value : '1'
             }, {
-                text : '未完结',
+                text : '审核未通过',
                 value : '0'
             }],
             changeHandler : function(btn, item) {
@@ -210,7 +213,7 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
             },
             autoExpandMax : 500
         });
-        //this.store.load();
+        this.store.load();
 
         Ext.project.InstituteSchemePanel.superclass.constructor.call(this,{
             layout : 'border',
@@ -257,7 +260,7 @@ Ext.project.InstituteSchemePanel = new Ext.extend(Ext.Panel, {
         }
         if (this.checkChildProjectSchemeWindow == null) {
             this.checkChildProjectSchemeWindow = new Ext.project.CheckInstituteSchemeWindow({
-                saveUrl : this.Url.insertUrl,
+                saveUrl : this.Url.updateUrl,
                 store : this.store
             });
             this.checkChildProjectSchemeWindow.setTitle('审核方案');

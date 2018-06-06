@@ -26,6 +26,9 @@ Ext.project.ChildProjectSchemeFormPanel = Ext.extend(Ext.form.FormPanel, {
 			layout : 'form',
 			// 把窗口显示的东西放到数组里
 			items : [{
+                name : 'id',
+                xtype:'hidden'
+            },{
                 xtype : 'textfield',
                 name : 'file',
                 regex : /\.((x|X)(l|L)(s|S)|(x|X)(l|L)(s|S)(x|X))$/,
