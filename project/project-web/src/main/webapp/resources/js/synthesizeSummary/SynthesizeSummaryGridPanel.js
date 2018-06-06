@@ -13,14 +13,14 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
             queryUrl : 'project/establish/queryListForPage',
             insertUrl : 'project/establish/insert',
             updateUrl : 'project/establish/update',
-            deleteUrl : 'project/establish/delete'
+            deleteUrl : 'project/establish/delete',
 		},
 
             /** 项目列表 */
             this.projectTree = new Ext.project.ProjectTreePanel({
                 treeType : 0,
                 rootVisible : false,
-                width : 200,
+                width : 150,
                 url : this.Url,
                 userType:1,
                 region : 'west',
@@ -68,6 +68,7 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
         }, {
             header : '年度',
             dataIndex : 'annual',
+            hidden:true,
             renderer : Ext.util.Format.dateRenderer('Y')
         }, {
             header : '总结时间',
@@ -113,7 +114,9 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
                 "results" : 4,
                 "rows" : [
                     {id: '1',title: '教师队伍建设总结',leader: '张三',annual: '1522339200000',summaryTime: '1522339200000',taskSummarize:'教师队伍建设任务完成情况综述',problem:'教师队伍建设任务存在问题与对策',fundsSummarize:'教师队伍建设任务经费使用情况综述',feature:'教师队伍建设任务特色与亮点'},
-                    {id: '2',title: '综合改革项目总结',leader: '王五',annual: '1522339200000',summaryTime: '1522339200000',taskSummarize:'综合改革项目任务完成情况综述',problem:'综合改革项目存在问题与对策',fundsSummarize:'综合改革项目经费使用情况综述',feature:'综合改革项目特色与亮点'},
+                    {id: '2',title: '综合改革项目总结',leader: '王五',annual: '1522339200000',summaryTime: '1522339200000',taskSummarize:'在新时代的引领下，综合改革项目建设紧跟新时代的发展，加大对综合项目的投入，在教学方式、教学成果上取得了一定的成功，项目建设任务全部完成。',problem:'存在问题：普及度不高\\n" +\n' +
+                    '                    "\\n" +\n' +
+                    '                    "对策：加大项目投入，通过制定在线创新教学课程，进一步摸索出良好可行的在线教学模式，让广大学生实现在线学习，从中受益。',fundsSummarize:'综合改革项目经费使用情况综述',feature:'亮点：综合创新教学方法，实践“校企合作办学”模式，更好提高了学生的专业能力和创新能力，实现产学研'},
                     {id: '3',title: '高水平专业建设项目总结',leader: '赵四',annual: '1522425600000',summaryTime: '1522425600000',taskSummarize:'高水平专业建设项目任务完成情况综述',problem:'高水平专业建设项目存在问题与对策',fundsSummarize:'高水平专业建设项目经费使用情况综述',feature:'高水平专业建设项目特色与亮点'},
                     {id: '4',title: '科研研究和社会服务建设项目总结',leader: '李六',annual: '1522425600000',summaryTime: '1522425600000',taskSummarize:'科研研究和社会服务建设项目任务完成情况综述',problem:'科研研究和社会服务建设项目存在问题与对策',fundsSummarize:'科研研究和社会服务建设项目经费使用情况综述',feature:'科研研究和社会服务建设项目特色与亮点'}
                 ]
@@ -169,6 +172,7 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
             },
             scope : this
         });
+
         //底部工具栏
         this.pagingBar = new Ext.PagingToolbar({
             store : this.store,
@@ -195,7 +199,14 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
         });
 
         // 添加查询
-        this.actionToolBar.add([this.cycleButton,'-',this.searchField ]);
+        this.actionToolBar.add(
+            [{
+                text : '一键生成报告',
+                scope : this,
+                iconCls : 'edit',
+                handler : this.getReportDoc,
+                },'-'
+                ,this.cycleButton,'-',this.searchField ]);
 
         this.grid = new Ext.grid.GridPanel({
             sm : this.sm,
@@ -247,8 +258,18 @@ Ext.project.SynthesizeSummaryGridPanel = new Ext.extend(Ext.Panel, {
         this.updateSynthesizeSummaryWindow.show();
         this.updateSynthesizeSummaryWindow.reset();
         this.updateSynthesizeSummaryWindow.loadRecord(records[0]);
-    }
+    },
 
+    getReportDoc:function(){
+        var records = this.grid.getSelectionModel().getSelections();
+        if (records == null || records.length != 1) {
+            Ext.Msg.alert('提示', '请选中一个项目');
+            return false;
+        }
+        //http://localhost:8080/filecabinet/personalFile/downloadFile?fileId=6DCCA37A61F19862E0501EDEDFC25A00
+       window.open("http://localhost:8080/filecabinet/personalFile/downloadFile?fileId=6DCCA37A61F19862E0501EDEDFC25A00");
+
+    }
 
 
 

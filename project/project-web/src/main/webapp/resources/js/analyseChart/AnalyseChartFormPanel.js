@@ -3,21 +3,22 @@ Ext.project.AnalyseChartFormPanel = Ext.extend(Ext.FormPanel, {
 	constructor : function(_config) {
 		Ext.apply(this, _config || {});
 
-		this.linerChartPanel = new Ext.project.LinerChartPanel({
+		this.linerChartPanel = new Ext.project.TargetChartPanel({
             title : '量化指标实时进度',
-            height : 650,
-            region : 'center'
-        });
+            height : 600,
+            region : 'center',
+
+    });
 
         this.columnChartPanel = new Ext.project.ColumnChartPanel({
             title : '季度工作计划完成情况',
-            height : 600,
-            region : 'center'
-        });
+            height : 300,
+            region : 'center',
+    });
 
         this.pieChartPanel = new Ext.project.PieChartPanel({
-            title : '年度经费使用情况',
-            height : 600,
+            title : '项目经费情况',
+            height : 300,
             region : 'center'
         });
 
@@ -36,6 +37,7 @@ Ext.project.AnalyseChartFormPanel = Ext.extend(Ext.FormPanel, {
 		Ext.project.AnalyseChartFormPanel.superclass.constructor.call(this, {
 			frame : true,
             fileUpload:true,
+            tbar : this.actionToolBar,
 			defaults : {
                 layout : 'form',
                 defaults : {
@@ -51,10 +53,10 @@ Ext.project.AnalyseChartFormPanel = Ext.extend(Ext.FormPanel, {
                 columnWidth : 1,
                 items : [this.linerChartPanel]
             },{
-                columnWidth : .5,
+                columnWidth : 0.5,
                 items : [this.columnChartPanel]
             },{
-                columnWidth : .5,
+                columnWidth : 0.5,
                 items : [this.pieChartPanel]
             },{
                 columnWidth : 1,
@@ -62,8 +64,26 @@ Ext.project.AnalyseChartFormPanel = Ext.extend(Ext.FormPanel, {
             },{
                 columnWidth : 1,
                 items : [this.achievecolumnChartPanel]
-            }]
+            }],
+            buttonAlign:"center",
+            buttons:[
+                {
+                    text:"一键生成数据分析报告",
+                    handler:this.getReportDoc,
+                }
+            ]
 
 		});
-	}
+	},
+
+    getReportDoc:function(){
+        // var records = this.grid.getSelectionModel().getSelections();
+        // if (records == null || records.length != 1) {
+        //     Ext.Msg.alert('提示', '请选中一个项目');
+        //     return false;
+        // }
+        //http://localhost:8080/filecabinet/personalFile/downloadFile?fileId=6DCCA37A61F19862E0501EDEDFC25A00
+        window.open("http://localhost:8080/filecabinet/personalFile/downloadFile?fileId=6DCCA37A61F19862E0501EDEDFC25A00");
+
+    }
 });

@@ -55,13 +55,15 @@ Ext.project.SynthesizeSummaryFormPanel = Ext.extend(Ext.FormPanel, {
                     xtype : 'kindeditor',
                     height : 200,
                     allowBlank : false
-                },{
-                    fieldLabel : '年度',
-                    name : 'annual',
-                    xtype : 'datefield',
-                    format : 'Y',
-                    allowBlank : false
-                } , {
+                },
+                // {
+                //     fieldLabel : '年度',
+                //     name : 'annual',
+                //     xtype : 'datefield',
+                //     format : 'Y',
+                //     allowBlank : false,
+                // },
+                {
                     fieldLabel : '经费使用情况综述',
                     name : 'fundsSummarize',
                     xtype : 'kindeditor',

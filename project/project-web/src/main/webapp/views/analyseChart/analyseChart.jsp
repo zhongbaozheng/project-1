@@ -16,7 +16,8 @@
             '${ctx}/resources/js/analyseChart/FundsLinerChartPanel.js',
             '${ctx}/resources/js/analyseChart/ChartPanel.js',
             '${ctx}/resources/js/tree/ProjectTreePanel.js',
-            '${ctx}/resources/js/analyseChart/PieChartPanel.js'
+            '${ctx}/resources/js/analyseChart/PieChartPanel.js',
+			'${ctx}/resources/js/analyseChart/TargetChartPanel.js',
             ],
 		complete : function() {
 			var panel = new Ext.project.ChartPanel({

@@ -18,9 +18,9 @@ Ext.project.PieChartPanel = Ext.extend(Ext.Panel, {
         },
             this.option = {
                 title: {
-                    text: '年度经费使用情况',
+                    text: '2018年度经费使用情况',
 
-                    x: 'center'
+                    x: 'right'
                 },
                 tooltip: {
                     trigger: 'item',
@@ -29,7 +29,7 @@ Ext.project.PieChartPanel = Ext.extend(Ext.Panel, {
                 legend: {
                     orient: 'vertical',
                     left: 'left',
-                    data: ['交通费用', '工程费用', '人事费用', '行政费用', '财务费用']
+                    data: ['铁道供电技术费用', '城市轨道交通运营管理费用', '铁道通信与信息化技术费用', '机械制造与自动化费用', '城市轨道交通车辆技术费用',"商务英语","数控技术"]
                 },
                 series: [
                     {
@@ -38,11 +38,13 @@ Ext.project.PieChartPanel = Ext.extend(Ext.Panel, {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [
-                            {value: 335, name: '交通费用'},
-                            {value: 310, name: '工程费用'},
-                            {value: 234, name: '人事费用'},
-                            {value: 135, name: '行政费用'},
-                            {value: 1548, name: '财务费用'}
+                            {value: 33.5, name: '铁道供电技术费用'},
+                            {value: 31.0, name: '城市轨道交通运营管理费用'},
+                            {value: 23.4, name: '铁道通信与信息化技术费用'},
+                            {value: 13.5, name: '机械制造与自动化费用'},
+                            {value: 154.8, name: '城市轨道交通车辆技术费用'},
+                            {value: 15.8, name: '商务英语'},
+                            {value: 114, name: '数控技术'}
                         ],
                         itemStyle: {
                             emphasis: {
