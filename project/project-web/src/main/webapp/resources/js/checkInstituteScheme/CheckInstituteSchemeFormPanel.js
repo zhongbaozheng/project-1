@@ -26,6 +26,9 @@ Ext.project.CheckInstituteSchemeFormPanel = Ext.extend(Ext.form.FormPanel, {
 			layout : 'form',
 			// 把窗口显示的东西放到数组里
 			items : [{
+                name : 'id',
+                xtype:'hidden'
+            },{
                 fieldLabel : '学院建设方案',
                 name : 'fileName',
                 xtype : 'displayfield',

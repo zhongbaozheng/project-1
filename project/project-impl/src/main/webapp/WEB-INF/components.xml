@@ -33,4 +33,6 @@
     <bean id="taskAchievementService" class="com.yunzainfo.pitcher.plugin.project.service.impl.TaskAchievementServiceImpl"/>
     <bean id="taskAchievementFileService" class="com.yunzainfo.pitcher.plugin.project.service.impl.TaskAchievementFileServiceImpl"/>
 
+    <bean id="schemeService" class="com.yunzainfo.pitcher.plugin.project.service.impl.SchemeServiceImpl"/>
+
 </beans>
