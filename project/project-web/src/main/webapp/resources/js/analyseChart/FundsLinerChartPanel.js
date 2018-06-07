@@ -108,7 +108,7 @@ Ext.project.FundsLinerChartPanel = Ext.extend(Ext.Panel, {
         });
 
         Ext.project.FundsLinerChartPanel.superclass.constructor.call(this, {
-            title : '年度经费使用情况',
+            // title : '年度经费使用情况',
             layout: 'fit',
             items: [this.grid]
         })

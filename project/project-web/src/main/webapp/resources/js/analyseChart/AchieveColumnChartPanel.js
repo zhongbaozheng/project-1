@@ -24,37 +24,37 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
         },
         this.dataMap.dataAcademy = this.dataFormatter({
             //max : 60000,
-            2022:[8117.78,4462.74,11467.6,4878.61,4944.25,9304.52,3122.01],
-            2021:[6969.52,3905.64,10012.11,4230.53,3905.03,8047.26,3122.01],
-            2020:[6033.21,3110.97,8477.63,3571.37,3041.07,6672,3122.01],
-            2019:[5007.21,2578.03,6921.29,2855.23,2388.38,6002.54,3122.01],
-            2018:[4315,2150.76,6018.28,2324.8,1940.94,5458.22,2348.54]
+            2022:[81,44,11,48,49,93,31],
+            2021:[69,39,10,42,39,80,31],
+            2020:[60,31,84,35,30,66,31],
+            2019:[50,25,69,28,23,60,31],
+            2018:[43,21,60,23,19,54,23]
         });
 
         this.dataMap.dataSchool = this.dataFormatter({
             //max : 4000,
-            2022:[88.8,103.35,1461.81,276.77,634.94,939.43,672.76],
-            2021:[88.68,112.38,1400,262.42,589.56,882.41,625.61],
-            2020:[87.36,105.28,1370.43,276.3,522.8,798.43,568.69],
-            2019:[84.11,89.91,1064.05,215.19,420.1,615.8,488.23],
-            2018:[82.44,84.21,956.84,197.8,374.69,590.2,446.17]
+            2022:[88,10,14,27,63,93,67],
+            2021:[88,11,14,26,58,88,62],
+            2020:[87,10,13,27,52,79,56],
+            2019:[84,89,10,21,42,61,48],
+            2018:[82,84,95,19,37,59,44]
         });
 
         this.dataMap.dataProvince = this.dataFormatter({
-            2022:[2191.43,2457.08,6110.43,2755.66,2374.96,4566.83,1915.29],
-            2021:[2026.51,2135.07,5271.57,2357.04,1773.21,3869.4,1580.83],
-            2020:[1853.58,1685.93,4301.73,1919.4,1248.27,3061.62,1329.68],
-            2019:[1487.15,1337.31,3417.56,1463.38,967.49,2898.89,1098.37],
-            2018:[1249.99,1069.08,2911.69,1134.31,754.78,2609.85,943.49]
+            2022:[21,24,61,27,23,45,19],
+            2021:[20,21,52,23,17,38,15],
+            2020:[18,16,43,19,12,30,13],
+            2019:[14,13,34,14,96,28,10],
+            2018:[12,10,29,11,75,26,94]
         });
 
         this.dataMap.dataCountry = this.dataFormatter({
             //max : 25000,
-            2022:[5837.55,1902.31,3895.36,1846.18,1934.35,3798.26,1687.07],
-            2021:[4854.33,1658.19,3340.54,1611.07,1542.26,3295.45,1413.83],
-            2020:[4092.27,1319.76,2805.47,1375.67,1270,2811.95,1223.64],
-            2019:[3435.95,1150.81,2439.68,1176.65,1000.79,2487.85,1075.48],
-            2018:[2982.57,997.47,2149.75,992.69,811.47,2258.17,958.88]
+            2022:[58,19,38,18,19,37,16],
+            2021:[48,16,33,16,15,32,14],
+            2020:[40,13,28,13,12,28,12],
+            2019:[34,11,24,11,10,24,10],
+            2018:[29,99,21,99,81,22,95]
         });
 
         this.option = {
@@ -73,7 +73,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                     }
                 },
                 title: {
-                    subtext: '数据纯属虚构'
+                    subtext: '显示成果建设情况'
                 },
                 tooltip: {
                 },
@@ -84,8 +84,8 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                 calculable : true,
                 toolbox: {
                     feature: {
-                        dataView: {show: true, readOnly: false},
-                        saveAsImage: {show: true}
+                        // dataView: {show: true, readOnly: false},
+                        // saveAsImage: {show: true}
                     }
                 },
                 grid: {
@@ -101,7 +101,11 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                 xAxis: [
                     {
                         type:'category',
-                        axisLabel:{interval:0},
+                        // axisLabel:{interval:0},
+                        axisLabel :{
+                            interval:0,
+                            rotate:-20,
+                        },
                         data:['铁道供电技术','城市轨道交通运营管理','铁道通信与信息化技术','机械制造与自动化','城市轨道交通车辆技术','商务英语','数控技术']
                     }
                 ],
@@ -125,7 +129,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
             },
             options: [
                 {
-                    title: {text: '2018高水平专业建设项目成果指标'},
+                    title: {text: '2018高水平专业建设项目成果'},
                     series: [
                         {data: this.dataMap.dataProvince['2018']},
                         {data: this.dataMap.dataCountry['2018']},
@@ -136,7 +140,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                     ]
                 },
                 {
-                    title : {text: '2019高水平专业建设项目成果指标'},
+                    title : {text: '2019高水平专业建设项目成果'},
                     series : [
                         {data: this.dataMap.dataProvince['2019']},
                         {data: this.dataMap.dataCountry['2019']},
@@ -147,7 +151,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                     ]
                 },
                 {
-                    title : {text: '2020高水平专业建设项目成果指标'},
+                    title : {text: '2020高水平专业建设项目成果'},
                     series : [
                         {data: this.dataMap.dataProvince['2020']},
                         {data: this.dataMap.dataCountry['2020']},
@@ -158,7 +162,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                     ]
                 },
                 {
-                    title : {text: '2021高水平专业建设项目成果指标'},
+                    title : {text: '2021高水平专业建设项目成果'},
                     series : [
                         {data: this.dataMap.dataProvince['2021']},
                         {data: this.dataMap.dataCountry['2021']},
@@ -169,7 +173,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
                     ]
                 },
                 {
-                    title : {text: '2022高水平专业建设项目成果指标'},
+                    title : {text: '2022高水平专业建设项目成果'},
                     series : [
                         {data: this.dataMap.dataProvince['2022']},
                         {data: this.dataMap.dataCountry['2022']},
@@ -192,7 +196,7 @@ Ext.project.AchieveColumnChartPanel = Ext.extend(Ext.Panel, {
         });
 
         Ext.project.AchieveColumnChartPanel.superclass.constructor.call(this, {
-            title : '标志性成果完成情况',
+            // title : '标志性成果完成情况',
             layout: 'fit',
             width : 800,
             items: [this.grid]

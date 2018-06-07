@@ -4,32 +4,32 @@ Ext.project.AnalyseChartFormPanel = Ext.extend(Ext.FormPanel, {
 		Ext.apply(this, _config || {});
 
 		this.linerChartPanel = new Ext.project.TargetChartPanel({
-            title : '量化指标实时进度',
+            // title : '量化指标实时进度',
             height : 600,
             region : 'center',
 
     });
 
         this.columnChartPanel = new Ext.project.ColumnChartPanel({
-            title : '季度工作计划完成情况',
+            // title : '季度工作计划完成情况',
             height : 300,
             region : 'center',
     });
 
         this.pieChartPanel = new Ext.project.PieChartPanel({
-            title : '项目经费情况',
+            // title : '项目经费情况',
             height : 300,
             region : 'center'
         });
 
         this.achievecolumnChartPanel = new Ext.project.AchieveColumnChartPanel({
-            title : '成果完成情况',
+            // title : '成果完成情况',
             height : 750,
             region : 'center'
         });
 
         this.fundslinerChartPanel = new Ext.project.FundsLinerChartPanel({
-            title : '年度经费使用情况',
+            // title : '年度经费使用情况',
             height : 600,
             region : 'center'
         });
